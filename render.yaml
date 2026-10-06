@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ashkara-backend
+    env: node
+    buildCommand: cd ashkara-backend && npm install && npm run build
+    startCommand: cd ashkara-backend && npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+    autoDeploy: true
