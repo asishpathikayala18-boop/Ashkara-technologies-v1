@@ -6,7 +6,7 @@ import compression from "compression";
 import rateLimit from "express-rate-limit";
 import mongoSanitize from "express-mongo-sanitize";
 // @ts-ignore
-import xss from "xss-clean";
+
 import path from "path";
 import { setupSwagger } from "./config/swagger";
 import routes from "./routes";
@@ -37,7 +37,6 @@ const app = express();
 // Security Middleware
 app.use(helmet({ crossOriginResourcePolicy: { policy: "cross-origin" } }));
 app.use(mongoSanitize());
-app.use(xss());
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "http://localhost:5173",
